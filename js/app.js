@@ -153,6 +153,48 @@ async function marcarPago(num) {
 }
 
 
+async function desreservarNumero(num) {
+
+  if (!adminLogado) {
+
+    alert("Faça login como administrador.");
+
+    return;
+
+  }
+
+  const confirmar = confirm(
+    `Tem certeza que deseja liberar o número ${String(num).padStart(2, "0")}?\n\nA reserva será apagada e o número ficará disponível novamente.`
+  );
+
+  if (!confirmar) {
+
+    return;
+
+  }
+
+  try {
+
+    await db
+      .collection("rifa")
+      .doc(String(num))
+      .delete();
+
+    alert(
+      `Número ${String(num).padStart(2, "0")} liberado com sucesso!`
+    );
+
+  } catch (error) {
+
+    console.error("Erro ao liberar número:", error);
+
+    alert("Não foi possível liberar o número.");
+
+  }
+
+}
+
+
 function escaparHTML(texto) {
 
   const div = document.createElement("div");
@@ -209,6 +251,16 @@ function atualizarPainel() {
           html += `
             <button onclick="marcarPago(${num})">
               Já pagou
+            </button>
+
+            <button
+              onclick="desreservarNumero(${num})"
+              style="
+                background:#dc2626;
+                margin-top:8px;
+              "
+            >
+              Não pagou
             </button>
           `;
 
