@@ -140,7 +140,9 @@ async function marcarPago(num) {
         pago: true
       });
 
-    alert(`Número ${String(num).padStart(2, "0")} marcado como pago!`);
+    alert(
+      `Número ${String(num).padStart(2, "0")} marcado como pago!`
+    );
 
   } catch (error) {
 
@@ -186,7 +188,7 @@ async function desreservarNumero(num) {
 
   } catch (error) {
 
-    console.error("Erro ao liberar número:", error);
+    console.error("Erro ao liberar o número:", error);
 
     alert("Não foi possível liberar o número.");
 
