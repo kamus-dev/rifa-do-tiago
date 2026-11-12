@@ -281,7 +281,7 @@ function atualizarPainel() {
 
 function atualizarProgresso() {
 
-  const total = 300;
+  const total = 900;
 
   const vendidos = Object.keys(dados).length;
 
@@ -311,7 +311,7 @@ function render() {
 
   grid.innerHTML = "";
 
-  for (let i = 1; i <= 300; i++) {
+  for (let i = 1; i <= 900; i++) {
 
     const div = document.createElement("div");
 
