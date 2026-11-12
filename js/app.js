@@ -183,7 +183,7 @@ async function desreservarNumero(num) {
       .delete();
 
     alert(
-      `Número ${String(num).padStart(2, "0")} liberado com sucesso!`
+      `Número ${String(num).padStart(3, "0")} liberado com sucesso!`
     );
 
   } catch (error) {
@@ -331,7 +331,7 @@ function render() {
 
       div.innerHTML = `
         <div class="numero">
-          ${String(i).padStart(2, "0")}
+          ${String(i).padStart(3, "0")}
         </div>
 
         <div class="nome">
